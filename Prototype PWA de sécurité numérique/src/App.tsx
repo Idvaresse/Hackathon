@@ -985,17 +985,33 @@ function App() {
 function Welcome({ onNext }: { onNext: () => void }) {
   return (
     <section className="screen welcome">
-      <div className="welcome-mark">
-        <span />
-        <span />
-        <span />
+      <div className="welcome-top">
+        <div className="welcome-brand">
+          <div className="welcome-mark">
+            <span />
+            <span />
+            <span />
+          </div>
+          <div>
+            <h1>Ayidote</h1>
+            <span>Mon espace</span>
+          </div>
+        </div>
+        <ol className="welcome-steps" aria-label="Étape 1 sur 4">
+          <li className="on" />
+          <li />
+          <li />
+          <li />
+        </ol>
       </div>
       <div className="welcome-copy">
-        <p className="eyebrow">Mon espace</p>
-        <h1>Ayidote</h1>
+        <p className="welcome-kicker">
+          Joue, explore, <em>avance.</em>
+        </p>
         <p>Un endroit calme pour faire le point, à ton rythme.</p>
       </div>
-      <div>
+      <WelcomePhone />
+      <div className="welcome-actions">
         <OfflinePill />
         <Button onClick={onNext} icon="arrow">
           Continuer
@@ -1003,6 +1019,79 @@ function Welcome({ onNext }: { onNext: () => void }) {
         <p className="microcopy">Aucun compte · Rien à partager</p>
       </div>
     </section>
+  );
+}
+
+/** A 3D phone playing a real moment of the game, on a loop. */
+function WelcomePhone() {
+  return (
+    <div className="wp-stage" aria-hidden>
+      <div className="wp-arch" />
+      <div className="wp-floor" />
+      <div className="wp-phone">
+        <span className="wp-edge" />
+        <span className="wp-btn wp-btn-a" />
+        <span className="wp-btn wp-btn-b" />
+        <span className="wp-btn wp-btn-c" />
+        <div className="wp-screen">
+          <div className="wp-status">
+            <b>9:41</b>
+            <span className="wp-island" />
+            <i />
+          </div>
+          <div className="wp-chat-head">
+            <span className="wp-back" />
+            <span className="wp-avatar" />
+            <span>
+              <b>Kevin</b>
+              <small>en ligne</small>
+            </span>
+          </div>
+          <div className="wp-chapter">
+            <small>1 · Une rencontre inattendue</small>
+            <ol>
+              <li className="now">1</li>
+              <li />
+              <li />
+              <li />
+              <li />
+            </ol>
+          </div>
+          <div className="wp-pressure">
+            <small>Pression</small>
+            <span>
+              <i />
+            </span>
+          </div>
+          <div className="wp-messages">
+            <p className="wp-msg m1">Salut ! Je suis tombé sur ton profil 🙂</p>
+            <p className="wp-msg me m2">Merci haha.</p>
+            <p className="wp-msg m3">Ça te dit qu’on discute ?</p>
+          </div>
+          <div className="wp-panel">
+            <small>Que réponds-tu ?</small>
+            <span className="wp-choice c1">Oui, pourquoi pas ?</span>
+            <span className="wp-choice c2">On se connaît ?</span>
+            <span className="wp-tap" />
+          </div>
+          <div className="wp-outcome">
+            <span className="wp-shield" />
+            <b>Bon réflexe !</b>
+            <small>Une réponse floue est déjà un indice.</small>
+            <em>+1 réflexe débloqué</em>
+          </div>
+          <span className="wp-home" />
+          <span className="wp-glare" />
+        </div>
+      </div>
+      <div className="wp-sticker">
+        <b>Vrai</b> ou <b>piège</b> ?
+      </div>
+      <div className="wp-score">
+        <span>+10</span>
+        points de vigilance
+      </div>
+    </div>
   );
 }
 
